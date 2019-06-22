@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
 :root {
-  --primary-color-one: hsl(179, 62%, 43%);
-  --primary-color-two: hsl(71, 73%, 54%);
-  --neutral-color-one: hsl(204, 43%, 93%);
-  --neutral-color-two: hsl(218, 22%, 67%);
+  --primary-color-cyan: hsl(179, 62%, 43%);
+  --primary-color-bright-yelow: hsl(71, 73%, 54%);
+  --primary-color-celery: #4abebd;
+  --neutral-color-light-gray: hsl(204, 43%, 93%);
+  --neutral-color-grayish-blue: hsl(218, 22%, 67%);
   --mobile-viewport-width: 375px;
   --desktop-viewport-width: 1440px;
 }
@@ -15,12 +16,229 @@
 
 body {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   padding: 0;
-  background-color: var(--neutral-color-one);
+  margin: 0;
+  background-color: var(--neutral-color-light-gray);
   font-family: 'Karla', sans-serif;
   font-size: 16px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+/* Main Container */
+
+.pricing-article {
+  max-width: 700px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Section 1 - Welcome Message and Other details */
+
+.welcome-msg {
+  padding: 2rem;
+  border: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #fff;
+  grid-column: 1 / 3;
+}
+
+.heading {
+  font-size: 1.7rem;
+  color: var(--primary-color-cyan);
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: var(--primary-color-bright-yelow);
+}
+
+.description {
+  color: var(--neutral-color-grayish-blue);
+  line-height: 1.5;
+}
+
+/* Section 2 - Monthly Subscription */
+
+.monthly-subscription {
+  border-bottom-left-radius: 10px;
+  padding: 2rem;
+  background-color: var(--primary-color-cyan);
+  grid-column: 1 / 2;
+}
+
+.monthly-subscription-title {
+  margin: 0.2rem 0;
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+.monthly-subscription-price {
+  margin: 1.5rem 0 1rem 0;
+  font-size: 16px;
+  color: var(--neutral-color-grayish-blue);
+  vertical-align: middle;
+}
+
+.monthly-subscription-price .price {
+  margin-right: 10px;
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+.monthly-subscription-msg {
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.signup-button {
+  width: 100%;
+  padding: 1rem 3rem;
+  border: 1px solid var(--primary-color-bright-yelow);
+  outline: 0;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  background-color: var(--primary-color-bright-yelow);
+  box-shadow: 0 3px 18px #00000026;
+  cursor: pointer;
+}
+
+.signup-button:hover {
+  transform: translateY(-2px);
+  background-color: var(--primary-color-cyan);
+  border: 1px solid #fff;
+  outline: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Section 3 - Why Choose Us */
+
+.why-choose-us {
+  padding: 2rem;
+  border-bottom-right-radius: 10px;
+  background-color: var(--primary-color-celery);
+  grid-column: 2 / 3;
+}
+
+.why-title {
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+.reasons-list {
+  padding: 0;
+  list-style: none;
+  color: #fff;
+}
+
+.list-item {
+  line-height: 1.5;
+}
+
+/* Media Queries */
+
+@media(min-width: 320px) {
+
+  body {
+    height: 100%;
+  }
+
+  .pricing-article {
+    max-width: 95%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .line-break {
+    display: none;
+  }
+
+  .monthly-subscription {
+    border-radius: 0;
+    /* grid-row: 2 / 3;
+    grid-column: 1 / 3; */
+  }
+
+  .why-choose-us {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    /* grid-row: 3 / 4;
+    grid-column: 1 / 3; */
+  }
+}
+
+@media(min-width: 720px) {
+
+  body {
+    height: 100vh;
+  }
+
+  .pricing-article {
+    max-width: 700px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .welcome-msg {
+
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
+
+  .monthly-subscription {
+    border-bottom-left-radius: 10px;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+
+  .why-choose-us {
+    border-radius: 0;
+    border-bottom-right-radius: 10px;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+}
+
+@media(min-width: 1000px) {
+  body {
+    height: 100vh;
+  }
+
+  .pricing-article {
+    max-width: 900px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .welcome-msg {
+
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
+
+  .monthly-subscription {
+    border-bottom-left-radius: 10px;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+
+  .why-choose-us {
+    border-radius: 0;
+    border-bottom-right-radius: 10px;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
 }
